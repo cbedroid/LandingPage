@@ -1,0 +1,648 @@
+@import 'mixins'
+
+html,body
+  width: 100vw
+  height: 100%
+  margin: 0
+  scroll-behavior: smooth
+  +cross-browser(font-smoothing, antialiase)
+  +cross-browser(text-rendering, optimizeLegibility)
+  overflow-x: hidden
+
+body
+  font-size: 16px
+  line-height: 1.5em
+  font-family: 'Roboto', sans-serif
+  color: #000
+  background: #fff
+
+section
+  padding: 40px 0
+
+ul
+  padding: 0
+li
+  list-style: none
+
+a
+  text-decoration: none
+  color: #000
+  &:hover
+    color: #7c7c7c
+
+button,li,a,input,i,img
+  cursor: pointer
+  +cross-browser(transition, .3s ease-in-out)
+
+
+.grid
+  +cross-browser(display, flex )
+  align-items: center
+  justify-content: space-between
+  &--sa
+    justify-content: space-around
+    
+
+.nav
+  &--flex
+    +cross-browser(display, flex )
+    align-items: center
+    justify-content: space-around
+
+.title
+  font-family: 'Oswald', sans-serif
+  font-weight: bold
+  &--lg
+    font-size: 3rem 
+    text-transform: uppercase
+  &--bb
+    border-bottom: 4px solid
+    
+
+p.lead
+  color: #3d3d3d
+
+.cta
+  font-family: 'Oswald', sans-serif
+
+strike
+  color: #f00
+  
+.tshadow
+  text-shadow: 2px 2px 3px rgba(0,0,0,.5)
+
+
+.text-clip
+  background: #f1e2f3
+  color: #0abee3
+  font-weight: 800
+  text-shadow: 2px 6px 12px rgba(10,190,227,.4)
+  background-clip: text
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+
+.typing-text
+  width: 100%
+  height: 1em
+  animation: typing 2s steps(22), blink .5s step-end  alternate
+  overflow: hidden
+  border-right: 3px solid transparent
+  font-family: 'Sonsie One', cursive
+  letter-spacing: .125ch
+  font-weight: 800
+  text-shadow: 2px 2px 6px rgba(0,0,0,.6)
+
+
+/* modules End */
+
+#site-nav
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 5000
+  height: 100px
+  width: 100%
+  background: linear-gradient(to right, blue, red)
+  +cross-browser(transition, all .2s  ease-in)
+  
+  &.active
+    background: #fff !important
+    box-shadow: 2px 2px 12px rgba(0,0,0,.4)
+    #nav-bar .nav-link
+      color: #222
+    img#header-img
+      background: #222
+
+  .nav-link
+    font-weight: 700
+    color: #fff
+  img#header-img
+    width: 65px
+    height: 65px
+    border: 2px solid #000
+    border-radius: 50%
+    background: #fff
+    +cross-browser(transition, all .2s  ease-in)
+    box-shadow: 2px 2px 12px rgba(0,0,0,.6)
+
+  .navbar-collapse.show
+    margin: 4px 0  
+    padding: 6px
+    background: #000
+    width: 100%
+    *
+      color: #fff !important
+
+
+main
+  display: block
+  margin-top: 50px
+  width: 100vw
+
+#showcase
+  background-color: #222
+  background: linear-gradient(to right, blue, red)
+  color: #fff
+  overflow: hidden
+  .hero
+    &__header
+      position: relative
+      width: calc(100% / 1.25)
+      z-index: 100
+  .img-wrapper
+    position: relative
+    display: grid
+    place-items: center
+    margin: auto
+    background: linear-gradient(-65deg, rgba(121,23,94,.85), rgba(0,0,0,.4))
+    box-shadow: 8px 12px 14px rgba(255,255,255,.2)
+    border-radius: 50%
+    width: 500px
+    height: 500px
+    &::before,&::after
+      content: ""
+      position: absolute
+      top: 0
+      left: -20px
+      height: 155px
+      width: 155px
+      background: linear-gradient(to left, rgba(0,0,0,.5), rgba(0,0,0,.2))
+      border-radius: 50%
+      z-index: 0
+    &::after
+      top: -80px
+      left: -100px
+      height: 80px
+      width: 80px
+      background: linear-gradient(to right, rgba(255,0,0,.5), rgba(0,0,0,.2))
+
+    img
+      position: relative
+      z-index: 300
+      display: block
+      max-width: calc(100% + 100px)
+      +cross-browser(transform,rotateZ(-10deg) translateX(10px))
+      animation: tilt_and_roll 2s linear
+
+
+  .cta-block
+    position: relative
+    z-index: 300
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-end
+    margin: auto
+    max-width: 900px
+    width: auto
+    height: 275px
+    background-color: #333
+    background-image: url('https://comps.canstockphoto.com/retro-neon-city-background-neon-style-illustration_csp61558625.jpg')
+    background-position: 0% 60%
+    background-repeat: no-repeat
+    background-size: cover
+    border-radius: 4px
+    box-shadow: 2px 2px 12px rgba(0,0,0,.6)
+    +cross-browser(transform,translate(0, -100px))
+    z-index: 100
+    .wrapper
+      margin: 40px 0  10px
+    .title
+      background: #f1e2f3
+      color: #0abee3
+      font-weight: 800
+      text-shadow: 2px 6px 12px rgba(10,190,227,.4)
+      background-clip: text
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+    .cta
+      width: 300px
+      height: 50px
+      color: #fff
+      font-size: 1.35em
+      font-weight: 600
+      padding: 25 0
+      text-shadow: 2px 6px 12px rgba(0,0,0,.3)
+      box-shadow: 2px 6px 12px rgba(0,0,0,.3)
+
+#apparel
+  background: #ddd
+  .product
+    padding: 30px 0 
+    .title
+      font-size: 1.85rem
+      margin-bottom: 30px
+    .card 
+      position: relative
+      width: 100%
+      height: 475px
+      &--new-item
+        &::after,&::before
+          content: '✰ HOT'
+          position: absolute
+          top: 4px
+          left: 0 
+          width: fit-content
+          height: 35px
+          padding: 4px  20px
+          font-size: 1rem
+          font-weight:  600
+          background-color: rgba(255,255,255,.9)
+          box-shadow: 4px 2px 8px rgba(0,0,0,.4)
+          border-radius: 0 30px 0
+        &::after
+          color: #fff
+          background: rgba(#d45611,.85)
+          border-right: 2px solid rgba(255,255,255,.9)
+            
+      &-img
+        min-height: 234px
+        max-height: 260px
+        height: auto
+
+
+    .card-body.product-detail
+      .product__info
+        p
+          line-height: 1em
+          font-size: 1.15em
+          margin-block: 1em
+          font-weight: 400
+          white-space: nowrap
+          width: 250px
+          overflow: hidden
+          text-overflow: ellipsis
+        p.info__title
+          font-family: 'Oswald', sans-serif
+          font-weight: 500
+          
+
+      .product__thumbtray
+        background: #fff
+        display: flex
+         
+        img.product__imgthumb
+          margin-right: 7px
+          width: 36px
+          height: 36px
+          border: 1px solid transparent
+          &:hover
+            border-color: #f00
+
+      .product__checkout
+        width: 100%
+        font-weight: 700 
+        padding: 10px 0 
+
+        .btn--checkout
+          color: #aaa
+          border: 2px solid #ccc
+          margin-left: 12px
+          padding: 4px 10px
+          &:hover
+            background: #777
+            color: #fff
+            border-color: #888
+            box-shadow: 2px 2px 8px rgba(0,0,0,.3)
+
+    
+#deals
+  $accent: #fbc229
+  background: whitesmoke
+  padding-bottom: 0
+  #deals-countdown
+    display: flex
+    justify-content: space-around
+    align-items: center
+    margin: auto
+    width: fit-content
+    padding: 25px 32px 
+    .dt-label
+      font-weight: 800
+    .countdown
+      background: #fff
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      width: 125px
+      height: 75px
+      margin: 2px 7px
+      box-shadow: 0px 0px 22px rgba(0,0,0,.2)
+      font-size: 3rem
+      font-weight: 700
+      border: 1px solid #c2c2c2
+      border-radius: 4px
+      overflow: hidden
+      span.ticker
+        animation: countdown-timer 1s infinite linear
+
+  #newsletter
+    background-color: #e7e7e7
+    background: linear-gradient(45deg, rgba(149,155,160,.5) 17%, rgba(255,255,255,.6) 55%, rgba(169,175,180,.2) 65%)
+    padding-bottom: 60px
+    margin-top: 60px
+    .img-wrapper
+      position: relative
+      display: block
+      height: 400px
+      padding: 10px
+      img#cta-img
+        position: absolute
+        top: 0 
+        display: block
+        height: 600px
+        width: calc(100% + 125px)
+        transform: translateY(-25%)
+        background: transparent
+        -webkit-box-reflect: right  -220px linear-gradient(10deg, rgba(255,0,0,.0425), rgba(0,0,0,.09))
+    .title
+      font-size: 3rem
+
+    form#form
+      input[type="email"]
+        background: transparent
+        width: 100%
+        color: #adaaab
+        font-weight: bold
+        border: none
+        margin: 10px 0
+        padding: 8px 12px
+        border-bottom: 2px solid #adaaab
+        &::placeholder
+          color: #adaaab
+        &:focus
+          background: rgba(255,255,255,.4)
+          outline: none
+          color: #333
+
+      input[type="submit"]
+        height: 65px
+        background: $accent
+        font-weight: bold
+        color: #000
+        font-size: 1.25rem
+        box-shadow: 2px 2px 21px rgba(0,0,0,.3)
+        border-radius: 4px
+        border-color: #adaaab
+
+#trend 
+  #trend-card
+    display: flex
+    width: 100%
+    margin: 40px auto
+    flex-wrap: nowrap
+    flex-direction: row
+    justify-content: space-around
+
+  .card
+    min-width: 350px
+    max-width: 550px
+    padding: 0 0 30px
+    text-align: center
+    border: 0 
+    overflow: hidden
+    video
+      display: block
+      width: 100%
+      height: 100%
+      background: #000
+    .fashion-title
+      padding: 4px 6px
+
+
+ 
+footer
+  position: relative
+  left: 0 
+  bottom: 0 
+  display: block 
+  width: 100%
+  margin: 0 
+  background: #0f171e
+  color: #fff
+
+  a.nav-link
+    color: #fff
+  i 
+    font-weight: 500
+    margin: 0 2px
+    color: #000
+
+  .footer__content
+    a
+      .title
+        text-align: left
+    ul,nav
+      li
+        font-weight: 600
+        width: fit-content
+
+    #social-connect
+      a.nav-link
+        i.fab
+          margin-right: 10px
+          background: #fff
+          border-radius: 50%
+          font-size: 1.25rem
+          padding: 5px
+          transition: none
+
+        &:hover .fa-facebook
+          color: #1877f2
+        &:hover .fa-twitter
+          color: #1da1f2
+        &:hover .fa-instagram
+          color: #c32aa3
+        &:hover .fa-google-plus
+          color: #ea4335
+
+  .footer--bottom
+    display: flex
+    justify-content: space-between
+    padding: 5px 12px
+
+    #author
+      a,i
+        margin: 0 4px
+        font-size: 1.125rem
+        font-weight: 550
+        text-transform: capitalize
+        color: #fff
+        &:hover
+          color: blue
+            
+
+
+@media screen and (max-width: 426px)
+  #site-nav
+    #site-container
+      padding: 0 !important
+    #header-img
+      width: 45px !important
+      height: 45px !important
+    #nav-bar
+      padding: 0 
+      .nav-link
+        padding: 4px 3px
+
+  #showcase
+    padding: 40px 0  20px
+    height: 110vh
+    box-sizing: border-box
+    background-color: #222
+    background: linear-gradient(to right, blue, red)
+    color: #fff
+    .hero
+      &__header
+        position: relative
+        width: 100%
+        z-index: 100
+      &__title
+        font-size: 1.35rem
+        font-weight: 800
+
+    .img-wrapper
+      position: relative
+      display: grid
+      place-items: center
+      margin: auto
+      background: linear-gradient(-65deg, rgba(121,23,94,.85), rgba(0,0,0,.4))
+      box-shadow: 8px 12px 14px rgba(255,255,255,.2)
+      border-radius: 50%
+      width: 100%
+      height: 375px
+      &::before,&::after
+        content: ""
+        position: absolute
+        top: -10px
+        left: 10px
+        height: 155px
+        width: 155px
+        background: linear-gradient(to left, rgba(0,0,0,.5), rgba(0,0,0,.2))
+        border-radius: 50%
+      &::after
+        top: -70px
+        left: -5px
+        height: 80px
+        width: 80px
+        background: linear-gradient(to right, rgba(255,0,0,.5), rgba(0,0,0,.2))
+
+      img
+        position: relative
+        z-index: 300
+        display: block
+        margin: auto
+        max-width: 100%
+        width: 100%
+        +cross-browser(transform,rotateZ(-10deg) translateX(10px))
+        animation: tilt_and_roll 2s linear
+        z-index: 200
+
+    .cta-block
+      position: relative
+      z-index: 300
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: flex-end
+      margin: auto
+      max-width: 900px
+      min-height:  245px
+      width: auto
+      background-position: 0 -20
+      background-image: url('https://comps.canstockphoto.com/retro-neon-city-background-neon-style-illustration_csp61558625.jpg')
+      background-repeat: no-repeat
+      background-size: 100% 115%
+      border-radius: 4px
+      background-color: #333
+      box-shadow: 2px 2px 12px rgba(0,0,0,.6)
+      +cross-browser(transform,translate(0, -140px))
+      z-index: 1
+      .wrapper
+        margin: 40px 0  10px
+      .title
+        background: #f1e2f3
+        color: #0abee3
+        font-weight: 800
+        text-shadow: 2px 6px 12px rgba(10,190,227,.4)
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+      .cta
+        width: 300px
+        height: 50px
+        color: #fff
+        font-size: 1.35em
+        font-weight: 600
+        padding: 35 0
+        text-shadow: 2px 6px 12px rgba(0,0,0,.3)
+        box-shadow: 2px 6px 12px rgba(0,0,0,.3)
+
+
+  #apparel .product
+    padding: 20px 10px
+
+  #deals
+    $accent: #fbc229
+    background: whitesmoke
+    padding-bottom: 0
+    #deals-countdown
+      display: flex
+      justify-content: space-between
+      align-items: center
+      margin: auto
+      width: fit-contnt
+      padding: 15px 0px 
+      .dt-label
+        font-weight: 800
+      .countdown
+        background: #fff
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: 75px
+
+  #newsletter
+    .form-wrapper
+      padding: 30px 5px
+
+  #trend-card
+    .card
+      border: 1px solid
+    
+  footer
+    .footer--bottom
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      padding: 5px 8px
+
+
+@keyframes typing
+  0%
+    width: 0
+    border-right: 3px solid
+
+@keyframes blink
+  50%
+    border-color: transparent
+
+@keyframes tilt_and_roll
+  @for  $i from 1 through 10
+    $pc: $i * 10
+    #{$pc}%
+      +cross-browser(transform,rotateZ(-#{$i}deg) translateX(#{$i}px))
+
+      
+
+@keyframes countdown-timer
+  @for  $i from 1 through 10
+    $pc: $i * 10
+    #{$pc}%
+      transform: translateY(#{$pc/1.2}px) 
+      opacity: #{1.5 / $i}
+
+

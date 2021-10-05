@@ -1,3 +1,6 @@
+#
+# SWAP FILE
+*.sw*
 # Logs
 logs
 *.log
