@@ -15,6 +15,30 @@ body
   font-family: 'Roboto', sans-serif
   color: #000
   background: #fff
+  // firefox scrollbar properties
+  &.active
+    scrollbar-color: blue #f2000d
+    scrollbar-width: auto
+
+  // browser scrollbar
+  &::-webkit-scrollbar
+    width: .85em
+  &::-webkit-scrollbar-track
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  &::-webkit-scrollbar-thumb
+    background-color: darkgrey
+    outline: 1px solid slategrey
+
+  &.active::-webkit-scrollbar
+    width: .85em
+    background: #f2000d
+  &.active::-webkit-scrollbar-track
+    webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  &.active::-webkit-scrollbar-thumb
+    background-color: blue
+    border-radius: 12px
+    outline: 1px solid slategrey
 
 section
   padding: 40px 0
@@ -34,14 +58,12 @@ button,li,a,input,i,img
   cursor: pointer
   +cross-browser(transition, .3s ease-in-out)
 
-
 .grid
   +cross-browser(display, flex )
   align-items: center
   justify-content: space-between
   &--sa
     justify-content: space-around
-    
 
 .nav
   &--flex
@@ -53,11 +75,10 @@ button,li,a,input,i,img
   font-family: 'Oswald', sans-serif
   font-weight: bold
   &--lg
-    font-size: 3rem 
+    font-size: 3rem
     text-transform: uppercase
   &--bb
     border-bottom: 4px solid
-    
 
 p.lead
   color: #3d3d3d
@@ -67,10 +88,9 @@ p.lead
 
 strike
   color: #f00
-  
+
 .tshadow
   text-shadow: 2px 2px 3px rgba(0,0,0,.5)
-
 
 .text-clip
   background: #f1e2f3
@@ -84,14 +104,13 @@ strike
 .typing-text
   width: 100%
   height: 1em
-  animation: typing 2s steps(22), blink .5s step-end  alternate
+  animation: typing 2s steps(22), blink .5s step-end alternate
   overflow: hidden
   border-right: 3px solid transparent
   font-family: 'Sonsie One', cursive
   letter-spacing: .125ch
   font-weight: 800
   text-shadow: 2px 2px 6px rgba(0,0,0,.6)
-
 
 /* modules End */
 
@@ -100,11 +119,11 @@ strike
   top: 0
   left: 0
   z-index: 5000
-  height: 100px
+  height: 120px
   width: 100%
   background: linear-gradient(to right, blue, red)
   +cross-browser(transition, all .2s  ease-in)
-  
+
   &.active
     background: #fff !important
     box-shadow: 2px 2px 12px rgba(0,0,0,.4)
@@ -113,6 +132,9 @@ strike
     img#header-img
       background: #222
 
+  .brand-logo
+    width: 300px
+    height: 100px
   .nav-link
     font-weight: 700
     color: #fff
@@ -126,17 +148,16 @@ strike
     box-shadow: 2px 2px 12px rgba(0,0,0,.6)
 
   .navbar-collapse.show
-    margin: 4px 0  
+    margin: 4px 0
     padding: 6px
     background: #000
     width: 100%
     *
       color: #fff !important
 
-
 main
   display: block
-  margin-top: 50px
+  margin-top: 65px
   width: 100vw
 
 #showcase
@@ -184,7 +205,6 @@ main
       +cross-browser(transform,rotateZ(-10deg) translateX(10px))
       animation: tilt_and_roll 2s linear
 
-
   .cta-block
     position: relative
     z-index: 300
@@ -206,7 +226,7 @@ main
     +cross-browser(transform,translate(0, -100px))
     z-index: 100
     .wrapper
-      margin: 40px 0  10px
+      margin: 40px 0 10px
     .title
       background: #f1e2f3
       color: #0abee3
@@ -228,45 +248,55 @@ main
 #apparel
   background: #ddd
   .product
-    padding: 30px 0 
+    padding: 30px 0
     .title
       font-size: 1.85rem
       margin-bottom: 30px
-    .card 
+    .card
       position: relative
       width: 100%
-      height: 475px
-      &--new-item
-        &::after,&::before
-          content: '✰ HOT'
-          position: absolute
-          top: 4px
-          left: 0 
-          width: fit-content
-          height: 35px
-          padding: 4px  20px
-          font-size: 1rem
-          font-weight:  600
-          background-color: rgba(255,255,255,.9)
-          box-shadow: 4px 2px 8px rgba(0,0,0,.4)
-          border-radius: 0 30px 0
-        &::after
+      height: 100%
+      .item-label
+        position: absolute
+        top: 4px
+        left: 0
+        width: 100%
+        .inner-label
+          position: relative
+          display: inline-block
+          background: rgba(0, 47, 54,.75)
           color: #fff
-          background: rgba(#d45611,.85)
-          border-right: 2px solid rgba(255,255,255,.9)
-            
-      &-img
-        min-height: 234px
-        max-height: 260px
-        height: auto
-
+          width: 55%
+          padding: 2px 6px
+          z-index: 100
+          &:before
+            content: ""
+            position: absolute
+            top: 0
+            left: 20px
+            display: block
+            width: 100%
+            height: 100%
+            padding: 2px 6px
+            background: transparent
+            border-right: 28px solid rgba(0, 47, 54,.75)
+            -webkit-transform-origin: 100% 0
+            -ms-transform-origin: 100% 0
+            transform-origin: 100% 0
+            -webkit-transform: skew(-30deg)
+            -ms-transform: skew(-30deg)
+            transform: skew(-30deg)
+            z-index: 1
+      &-img-top
+        height: 450px
+        border: 1px solid #ececec
 
     .card-body.product-detail
       .product__info
         p
-          line-height: 1em
+          line-height: 1.3em
           font-size: 1.15em
-          margin-block: 1em
+          margin-block: .5em
           font-weight: 400
           white-space: nowrap
           width: 250px
@@ -275,12 +305,11 @@ main
         p.info__title
           font-family: 'Oswald', sans-serif
           font-weight: 500
-          
 
       .product__thumbtray
         background: #fff
         display: flex
-         
+
         img.product__imgthumb
           margin-right: 7px
           width: 36px
@@ -291,8 +320,8 @@ main
 
       .product__checkout
         width: 100%
-        font-weight: 700 
-        padding: 10px 0 
+        font-weight: 700
+        padding: 10px 0
 
         .btn--checkout
           color: #aaa
@@ -305,18 +334,16 @@ main
             border-color: #888
             box-shadow: 2px 2px 8px rgba(0,0,0,.3)
 
-    
 #deals
   $accent: #fbc229
   background: whitesmoke
-  padding-bottom: 0
   #deals-countdown
     display: flex
     justify-content: space-around
     align-items: center
     margin: auto
     width: fit-content
-    padding: 25px 32px 
+    padding: 25px 32px
     .dt-label
       font-weight: 800
     .countdown
@@ -338,10 +365,15 @@ main
         animation: countdown-timer 1s infinite linear
 
   #newsletter
+    display: grid
+    align-items: center
     background-color: #e7e7e7
     background: linear-gradient(45deg, rgba(149,155,160,.5) 17%, rgba(255,255,255,.6) 55%, rgba(169,175,180,.2) 65%)
     padding-bottom: 60px
     margin-top: 60px
+    height: 500px
+    width: 100%
+    margin: auto
     .img-wrapper
       position: relative
       display: block
@@ -349,13 +381,13 @@ main
       padding: 10px
       img#cta-img
         position: absolute
-        top: 0 
+        top: 0
         display: block
         height: 600px
         width: calc(100% + 125px)
         transform: translateY(-25%)
         background: transparent
-        -webkit-box-reflect: right  -220px linear-gradient(10deg, rgba(255,0,0,.0425), rgba(0,0,0,.09))
+        -webkit-box-reflect: right -220px linear-gradient(10deg, rgba(255,0,0,.0425), rgba(0,0,0,.09))
     .title
       font-size: 3rem
 
@@ -382,11 +414,10 @@ main
         font-weight: bold
         color: #000
         font-size: 1.25rem
-        box-shadow: 2px 2px 21px rgba(0,0,0,.3)
         border-radius: 4px
         border-color: #adaaab
 
-#trend 
+#trend
   #trend-card
     display: flex
     width: 100%
@@ -400,7 +431,7 @@ main
     max-width: 550px
     padding: 0 0 30px
     text-align: center
-    border: 0 
+    border: 0
     overflow: hidden
     video
       display: block
@@ -410,21 +441,19 @@ main
     .fashion-title
       padding: 4px 6px
 
-
- 
 footer
   position: relative
-  left: 0 
-  bottom: 0 
-  display: block 
+  left: 0
+  bottom: 0
+  display: block
   width: 100%
-  margin: 0 
+  margin: 0
   background: #0f171e
   color: #fff
 
   a.nav-link
     color: #fff
-  i 
+  i
     font-weight: 500
     margin: 0 2px
     color: #000
@@ -471,23 +500,31 @@ footer
         color: #fff
         &:hover
           color: blue
-            
 
-
-@media screen and (max-width: 426px)
+@media screen and (max-width: 575px)
   #site-nav
+    #nav-bar
+      padding: 0
+      .nav-wrapper
+        #logo-link
+          order: 1
+        #header-img
+          width: 55px
+          height: 55px
+        .brand-logo
+          order: 2
+          width: 200px
+          height: 75px
+        .navbar-toggler
+          order: 3
     #site-container
       padding: 0 !important
-    #header-img
-      width: 45px !important
-      height: 45px !important
-    #nav-bar
-      padding: 0 
       .nav-link
         padding: 4px 3px
 
+@media screen and (max-width: 426px)
   #showcase
-    padding: 40px 0  20px
+    padding: 40px 0 20px
     height: 110vh
     box-sizing: border-box
     background-color: #222
@@ -548,7 +585,7 @@ footer
       justify-content: flex-end
       margin: auto
       max-width: 900px
-      min-height:  245px
+      min-height: 245px
       width: auto
       background-position: 0 -20
       background-image: url('https://comps.canstockphoto.com/retro-neon-city-background-neon-style-illustration_csp61558625.jpg')
@@ -560,7 +597,7 @@ footer
       +cross-browser(transform,translate(0, -140px))
       z-index: 1
       .wrapper
-        margin: 40px 0  10px
+        margin: 40px 0 10px
       .title
         background: #f1e2f3
         color: #0abee3
@@ -579,7 +616,6 @@ footer
         text-shadow: 2px 6px 12px rgba(0,0,0,.3)
         box-shadow: 2px 6px 12px rgba(0,0,0,.3)
 
-
   #apparel .product
     padding: 20px 10px
 
@@ -593,7 +629,7 @@ footer
       align-items: center
       margin: auto
       width: fit-contnt
-      padding: 15px 0px 
+      padding: 15px 0px
       .dt-label
         font-weight: 800
       .countdown
@@ -611,7 +647,7 @@ footer
   #trend-card
     .card
       border: 1px solid
-    
+
   footer
     .footer--bottom
       display: flex
@@ -619,7 +655,6 @@ footer
       align-items: center
       justify-content: space-between
       padding: 5px 8px
-
 
 @keyframes typing
   0%
@@ -636,13 +671,9 @@ footer
     #{$pc}%
       +cross-browser(transform,rotateZ(-#{$i}deg) translateX(#{$i}px))
 
-      
-
 @keyframes countdown-timer
   @for  $i from 1 through 10
     $pc: $i * 10
     #{$pc}%
-      transform: translateY(#{$pc/1.2}px) 
+      transform: translateY(#{$pc/1.2}px)
       opacity: #{1.5 / $i}
-
-

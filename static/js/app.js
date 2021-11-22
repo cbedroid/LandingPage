@@ -7,8 +7,10 @@ $(document).ready(() => {
       entries.forEach((entry) => {
         // Toggle Site Navigation active
         $("#site-nav").addClass("active");
+        $("body").removeClass("active");
         if (entry.isIntersecting) {
           $("#site-nav").removeClass("active");
+          $("body").addClass("active");
         }
       });
     };
@@ -19,7 +21,7 @@ $(document).ready(() => {
 
   (function handleProductThumbHover() {
     /* product thumb image hover effect  */
-    $("#apparel .card .card-img").each(function () {
+    $("#apparel .card .card-img-top").each(function () {
       const product_image = this;
       const imgthumbs = $(this)
         .parent()
