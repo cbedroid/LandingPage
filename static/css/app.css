@@ -148,8 +148,9 @@ strike {
 #site-nav.active img#header-img {
   background: #222; }
 #site-nav .brand-logo {
-  width: 300px;
-  height: 100px; }
+  width: 500px;
+  height: 100px;
+  text-align: center; }
 #site-nav .nav-link {
   font-weight: 700;
   color: #fff; }
