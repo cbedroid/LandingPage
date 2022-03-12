@@ -140,11 +140,16 @@ strike {
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in; }
+#site-nav #nav-bar {
+  padding-left: 32px;
+  padding-right: 32px; }
 #site-nav.active {
   background: #fff !important;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4); }
 #site-nav.active #nav-bar .nav-link {
   color: #222; }
+#site-nav.active #nav-bar .nav-link:hover {
+  color: #888; }
 #site-nav.active img#header-img {
   background: #222; }
 #site-nav .brand-logo {
@@ -153,7 +158,10 @@ strike {
   text-align: center; }
 #site-nav .nav-link {
   font-weight: 700;
-  color: #fff; }
+  color: #fff;
+  transition: all 0.3s; }
+#site-nav .nav-link:hover {
+  color: #1d73fe; }
 #site-nav img#header-img {
   width: 65px;
   height: 65px;
@@ -370,7 +378,7 @@ main {
   align-items: center;
   width: 125px;
   height: 75px;
-  margin: 2px 7px;
+  margin: 2px 5px;
   box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.2);
   font-size: 3rem;
   font-weight: 700;

@@ -123,12 +123,18 @@ strike
   width: 100%
   background: linear-gradient(to right, blue, red)
   +cross-browser(transition, all .2s  ease-in)
+  #nav-bar
+      padding-left: 32px
+      padding-right: 32px
 
   &.active
     background: #fff !important
     box-shadow: 2px 2px 12px rgba(0,0,0,.4)
     #nav-bar .nav-link
       color: #222
+      &:hover
+        color: #888
+
     img#header-img
       background: #222
 
@@ -141,6 +147,10 @@ strike
   .nav-link
     font-weight: 700
     color: #fff
+    transition: all .3s
+    &:hover
+      color: #1d73fe
+
   img#header-img
     width: 65px
     height: 65px
@@ -357,7 +367,7 @@ main
       align-items: center
       width: 125px
       height: 75px
-      margin: 2px 7px
+      margin: 2px 5px
       box-shadow: 0px 0px 22px rgba(0,0,0,.2)
       font-size: 3rem
       font-weight: 700
