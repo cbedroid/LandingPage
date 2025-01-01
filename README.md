@@ -13,3 +13,16 @@ A FreeCodeCamp Landing Page Project of the Responsive Web Design Curriculum. Vis
 
 
 [FCC_LANDING_PAGE]: https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-product-landing-page
+
+
+## Truu Creation Landing Page 
+
+#### Women Wear
+![Women Wear](https://github.com/user-attachments/assets/31790ac7-6b58-476a-8c25-9fa5886890bd)
+
+#### Men Wear
+![Men Wear](https://github.com/user-attachments/assets/6d599768-f746-45ba-b53b-840d41ac9c7b)
+
+
+https://github.com/user-attachments/assets/4a79a67e-53a7-499e-976a-e0e0541c46cd
+
